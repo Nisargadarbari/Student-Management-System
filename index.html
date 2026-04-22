@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Management System</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Student Management System</h1>
+        <p class="subtitle">Next-generation student information system</p>
+      </header>
+
+      <main class="dashboard-grid">
+        <!-- Add Student Card -->
+        <section class="card">
+          <h2 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Enroll New Student</h2>
+          <form id="student-form">
+            <div class="form-group">
+              <label for="studentID">Student ID</label>
+              <input type="number" id="studentID" required placeholder="e.g. 1001" />
+            </div>
+            <div class="form-group">
+              <label for="rollNumber">Roll Number</label>
+              <input type="number" id="rollNumber" required placeholder="e.g. 45" />
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="number" id="age" required placeholder="e.g. 20" />
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="tel" id="phoneNumber" required placeholder="e.g. +1 234 567" />
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" id="address" required placeholder="Street, City, State" />
+            </div>
+            <button type="submit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg>
+              Add Student
+            </button>
+          </form>
+        </section>
+
+        <!-- Records Card -->
+        <section class="card student-list-container">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h2 style="font-size: 1.25rem;">Student Records</h2>
+            <span class="badge" id="student-count">0 Students</span>
+          </div>
+
+          <div class="search-bar">
+            <input type="text" id="search" placeholder="Search by ID or Roll Number..." />
+          </div>
+
+          <div class="student-table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Roll #</th>
+                  <th>Age</th>
+                  <th>Phone</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="student-table-body">
+                <!-- Rows injected by JS -->
+              </tbody>
+            </table>
+            <div id="empty-state" class="empty-state">
+              <p>No records found. Start by enrolling a student.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
