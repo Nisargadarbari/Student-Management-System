@@ -2,7 +2,7 @@ import './style.css'
 
 // --- State ---
 let currentUser = JSON.parse(sessionStorage.getItem('portal_current_user')) || null;
-const API_BASE = 'http://127.0.0.1:5000/api';
+const API_BASE = '/api';
 
 // --- DOM Elements ---
 const authScreen = document.getElementById('auth-screen');
