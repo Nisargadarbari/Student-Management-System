@@ -13,6 +13,15 @@
   --danger: #ef4444;
 }
 
+body.light-mode {
+  --bg: #f8fafc;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: rgba(0, 0, 0, 0.1);
+  --glass: rgba(0, 0, 0, 0.05);
+}
+
 .text-success { color: var(--success) !important; }
 .text-warning { color: #f59e0b !important; }
 .text-danger { color: var(--danger) !important; }
