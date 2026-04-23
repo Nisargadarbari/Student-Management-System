@@ -4,7 +4,7 @@
 [![Flask](https://img.shields.io/badge/Backend-Flask-000000?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/)
 [![MongoDB](https://img.shields.io/badge/Database-MongoDB%20Atlas-47A248?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
 
-A professional Student Management Portal with persistent cloud storage.
+A professional Student Management Portal with persistent cloud storage, dynamic dashboards, and theme support.
 
 ---
 
@@ -18,6 +18,12 @@ A professional Student Management Portal with persistent cloud storage.
     *   `MONGODB_URI`: `your_connection_string_here` (remember to replace `<password>` with your real password).
 
 ### 2. Local Setup
+1. Create a `.env` file in the root directory:
+```bash
+MONGODB_URI=your_mongodb_connection_string
+```
+
+2. Install dependencies and run:
 ```bash
 pip install -r requirements.txt
 python api/index.py
@@ -32,9 +38,11 @@ npm run dev
 ---
 
 ## 📂 Features
-- **Cloud Persistence**: Data saved to MongoDB Atlas.
-- **Vercel Ready**: Optimized for serverless deployment.
-- **Modern UI**: Clean, dark-themed student dashboard.
+- **Cloud Persistence**: Data saved securely to MongoDB Atlas.
+- **Dynamic Dashboard**: Personalized views for Attendance, Subjects, Marks, and Assignments.
+- **Theme Support**: Integrated Dark Mode and Light Mode toggle.
+- **Profile Management**: Update student details with instant database sync.
+- **Vercel Ready**: Fully optimized for serverless deployment with SSL handshake fixes for macOS.
 
 ---
 
