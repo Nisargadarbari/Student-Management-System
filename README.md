@@ -92,6 +92,31 @@ student-system/
 
 ---
 
+## 🔐 Database Configuration (Supabase)
+
+To make student data persistent on Vercel, follow these steps:
+
+1.  **Create a Supabase Account**: Go to [supabase.com](https://supabase.com/) and create a new project.
+2.  **Create the Table**: Run the following SQL in the Supabase SQL Editor:
+    ```sql
+    create table students (
+      usn text primary key,
+      name text,
+      dept text,
+      student_id text,
+      marks float,
+      attendance float default 0,
+      fee_status text default 'Pending',
+      paid_fees float default 0,
+      total_fees float default 50000
+    );
+    ```
+3.  **Set Environment Variables**: In your Vercel Project Settings -> Environment Variables, add:
+    - `SUPABASE_URL`: Your Supabase Project URL.
+    - `SUPABASE_KEY`: Your Supabase `anon` `public` API Key.
+
+---
+
 ## 📝 Configuration
 
 - **Database**: The system uses `students.xlsx`. If the file doesn't exist, `server.py` will automatically initialize it with the required schema.
