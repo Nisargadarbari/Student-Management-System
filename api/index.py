@@ -2,6 +2,10 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import pandas as pd
+from dotenv import load_dotenv
+
+# Load .env file for local development
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
