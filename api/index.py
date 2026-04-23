@@ -70,7 +70,8 @@ def signup():
             df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
             df.to_excel(EXCEL_FILE, index=False)
 
-        return jsonify({"success": True, "message": "User registered successfully"})
+        db_type = "Supabase" if USING_SUPABASE else "Excel (Fallback)"
+        return jsonify({"success": True, "message": f"User registered successfully using {db_type}"})
     except Exception as e:
         return jsonify({"success": False, "message": str(e)}), 500
 
