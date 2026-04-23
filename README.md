@@ -1,35 +1,96 @@
 # 🎓 Student Management System
 
-[![Vite](https://img.shields.io/badge/Frontend-Vite%20%2B%20JS-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
-[![Flask](https://img.shields.io/badge/Backend-Flask-000000?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/)
-[![MongoDB](https://img.shields.io/badge/Database-MongoDB%20Atlas-47A248?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
-
-A professional Student Management Portal with persistent cloud storage, dynamic dashboards, and theme support.
+A professional, high-performance Student Management Portal built with a modern tech stack. This system provides students with a real-time dashboard to track their academic progress, attendance, and administrative status.
 
 ---
 
-## 🚀 Setup Instructions
+## 🏛️ System Architecture
 
-### 1. Database (MongoDB Atlas)
-1.  Create a free account at [mongodb.com](https://www.mongodb.com/).
-2.  Create a cluster and click **"Connect"**.
-3.  Choose **"Drivers"** and copy the connection string.
-4.  **Important**: In Vercel Settings -> Environment Variables, add:
-    *   `MONGODB_URI`: `your_connection_string_here` (remember to replace `<password>` with your real password).
-
-### 2. Local Setup
-1. Create a `.env` file in the root directory:
-```bash
-MONGODB_URI=your_mongodb_connection_string
+```mermaid
+graph TD
+    A[User / Browser] -->|Vite Dev Server / Vercel| B(Frontend: HTML/CSS/JS)
+    B -->|API Requests| C{Flask API}
+    C -->|Environment Config| D[.env / Vercel Vars]
+    C -->|Database Queries| E[(MongoDB Atlas Cloud)]
+    
+    subgraph "Frontend Layer"
+        B
+    end
+    
+    subgraph "Backend Layer (Serverless)"
+        C
+    end
+    
+    subgraph "Data Layer"
+        E
+    end
 ```
 
-2. Install dependencies and run:
-```bash
-pip install -r requirements.txt
-python api/index.py
+---
+
+## 📂 Project Structure
+
+```text
+student-system/
+├── api/                # Backend API (Flask)
+│   └── index.py        # Main entry point for Vercel
+├── public/             # Static assets
+├── src/                # Frontend source files
+│   ├── main.js         # Core dashboard logic
+│   └── style.css       # Premium glassmorphism UI
+├── .env                # Local secrets (ignored by git)
+├── index.html          # Main application shell
+├── requirements.txt    # Python dependencies
+├── vercel.json         # Deployment configuration
+└── vite.config.js      # Build tool configuration
 ```
 
-### 3. Frontend Setup
+---
+
+## ✨ Features
+
+### 🏢 Core Functionality
+- **Cloud Persistence**: Full CRUD operations using MongoDB Atlas.
+- **Secure Auth**: Simple yet effective USN-based authentication.
+- **Dynamic Dashboard**: Auto-populates data for Attendance, Subjects, Marks, and Assignments.
+
+### 🎨 Premium UI/UX
+- **Glassmorphism Design**: Modern, transparent UI elements with blur effects.
+- **Theme Engine**: Toggle between a sleek "Midnight Dark" and "Crystal Light" mode.
+- **Responsive Layout**: Sidebar-based navigation that adapts to mobile and tablet screens.
+- **Micro-animations**: Smooth transitions and hover effects for a premium feel.
+
+### 🛠️ Technical Highlights
+- **Serverless Ready**: Optimized for Vercel's Python runtime.
+- **SSL Security**: Integrated `certifi` handling for secure database handshakes.
+- **State Management**: Session-based persistence for logged-in users.
+
+---
+
+## 🚀 Setup & Installation
+
+### 1️⃣ Database Setup (MongoDB Atlas)
+1.  Create a cluster at [MongoDB Atlas](https://www.mongodb.com/).
+2.  Add an IP Access rule (`0.0.0.0/0`) in **Network Access**.
+3.  Create a database user and copy the connection string.
+
+### 2️⃣ Local Environment Setup
+1.  **Clone & Configure**:
+    ```bash
+    git clone https://github.com/Nisargadarbari/Student-Management-System.git
+    cd Student-Management-System
+    ```
+2.  **Add Secrets**: Create a `.env` file in the root:
+    ```env
+    MONGODB_URI=your_connection_string_here
+    ```
+3.  **Backend Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    python api/index.py
+    ```
+
+### 3️⃣ Frontend Execution
 ```bash
 npm install
 npm run dev
@@ -37,15 +98,22 @@ npm run dev
 
 ---
 
-## 📂 Features
-- **Cloud Persistence**: Data saved securely to MongoDB Atlas.
-- **Dynamic Dashboard**: Personalized views for Attendance, Subjects, Marks, and Assignments.
-- **Theme Support**: Integrated Dark Mode and Light Mode toggle.
-- **Profile Management**: Update student details with instant database sync.
-- **Vercel Ready**: Fully optimized for serverless deployment with SSL handshake fixes for macOS.
+## 🛡️ Environment Variables
+
+| Variable | Description | Source |
+| :--- | :--- | :--- |
+| `MONGODB_URI` | The connection string for your MongoDB Atlas cluster. | MongoDB Atlas > Connect > Drivers |
+
+---
+
+## 🗺️ Roadmap
+- [ ] Password-based authentication (Hashing).
+- [ ] Student Profile Photo upload (S3/Cloudinary).
+- [ ] PDF Result downloading.
+- [ ] Real-time push notifications for assignments.
 
 ---
 
 <p align="center">
-  Made with ❤️ by Nisarga Darbari
+  Built with ❤️ by <b>Nisarga Darbari</b>
 </p>
